@@ -1,6 +1,6 @@
 # bdgest-jkl-spring
 
-## BDGest from group : 
+## BDGest from group :
 ### LACERENZA Loris
 ### KHIAL Omar 
 ### JUBARD Théo
