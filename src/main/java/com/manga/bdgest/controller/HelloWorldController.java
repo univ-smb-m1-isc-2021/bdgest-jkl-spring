@@ -1,4 +1,4 @@
-package com.manga.bdgest;
+package com.manga.bdgest.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class HelloWorldControler {
+public class HelloWorldController {
 
     @CrossOrigin
     @RequestMapping("/")

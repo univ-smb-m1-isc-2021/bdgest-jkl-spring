@@ -1,4 +1,4 @@
-package com.manga.bdgest;
+package com.manga.bdgest.application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
