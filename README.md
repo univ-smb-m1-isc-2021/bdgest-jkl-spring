@@ -1,9 +1,12 @@
 # bdgest-jkl-spring
 
-## BDGest from group :
-### LACERENZA Loris
-### KHIAL Omar 
-### JUBARD Théo
+## BDGest from group
+
+> LACERENZA Loris, KHIAL Omar, JUBARD Théo
+
+### Nouveau repo
+
+- https://github.com/bdgest-jkl
 
 SOURCE SCRAPPING : 
 - Mavel Developer : https://developer.marvel.com/
