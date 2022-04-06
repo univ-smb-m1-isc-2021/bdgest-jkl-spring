@@ -4,10 +4,10 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.3</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <version>2.6.6</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.manga</groupId>
+    <groupId>com.manga.bdgest</groupId>
     <artifactId>bd-gest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>bd-gest</name>
