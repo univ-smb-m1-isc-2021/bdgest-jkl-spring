@@ -3,6 +3,7 @@ package com.manga.bdgest.persistence;
 import com.manga.bdgest.model.Auteur;
 import com.manga.bdgest.model.Album;
 import com.manga.bdgest.model.Compte;
+import com.manga.bdgest.model.Serie;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -53,11 +54,13 @@ class Initializer {
                     compteRepository.saveAndFlush(compte2);
                     compteRepository.saveAndFlush(compte3);
 
-                    Album album1 = new Album("Tintin et Loris","Les aventures de Lorissou", "45", "156565161313", auteur, new Date(), "C'est pas ouf","sdfgsdfgsdfg");
+                    Serie serie = new Serie();
 
-                    Album album2 = new Album("Loris au toilette","Les aventures de Lorissou", "69", "654424874654", auteur2, new Date(), "Loris à bu trop de coca, pourra-t-il évacuer correctement ?","dflglksjhdfg");
+                    Album album1 = new Album("Tintin et Loris",serie, "45", "156565161313", auteur, new Date(), "C'est pas ouf","sdfgsdfgsdfg");
 
-                    Album album3 = new Album("Loris mange du poisson","Les aventures de Lorissou", "100", "64598731654", auteur3, new Date(), "dernier tome ...","oshkfdjhg");
+                    Album album2 = new Album("Loris au toilette",serie, "69", "654424874654", auteur2, new Date(), "Loris à bu trop de coca, pourra-t-il évacuer correctement ?","dflglksjhdfg");
+
+                    Album album3 = new Album("Loris mange du poisson",serie, "100", "64598731654", auteur3, new Date(), "dernier tome ...","oshkfdjhg");
 
                     albumRepository.saveAndFlush(album1);
                     albumRepository.saveAndFlush(album2);
