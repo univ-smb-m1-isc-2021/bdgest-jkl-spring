@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class BdGestApplicationTests {
 
-    µ@Test
+    @Test
     void contextLoads() {
     }
 
