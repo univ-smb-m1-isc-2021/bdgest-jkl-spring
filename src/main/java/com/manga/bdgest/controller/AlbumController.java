@@ -3,7 +3,6 @@ package com.manga.bdgest.controller;
 import com.manga.bdgest.model.Album;
 import com.manga.bdgest.service.AlbumService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
