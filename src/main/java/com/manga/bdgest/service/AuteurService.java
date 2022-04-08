@@ -1,6 +1,7 @@
 package com.manga.bdgest.service;
 
 
+import com.manga.bdgest.model.Album;
 import com.manga.bdgest.model.Auteur;
 import com.manga.bdgest.persistence.AuteurRepository;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class AuteurService {
 
     public List<Auteur> getAll() {
         return repository.findAll();
+    }
+
+    public Optional<Auteur> getById(Long id){
+        return repository.findById(id);
     }
 
     public void delete(Long id) {

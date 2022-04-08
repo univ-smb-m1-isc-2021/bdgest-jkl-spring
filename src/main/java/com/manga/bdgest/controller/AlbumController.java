@@ -2,7 +2,7 @@ package com.manga.bdgest.controller;
 
 
 import com.manga.bdgest.model.Album;
-import com.manga.bdgest.model.AlbumService;
+import com.manga.bdgest.service.AlbumService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;

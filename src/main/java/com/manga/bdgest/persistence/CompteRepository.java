@@ -10,6 +10,4 @@ import org.springframework.stereotype.Repository;
 public interface CompteRepository extends JpaRepository<Compte, Long> {
 
     Compte findByPseudo(String pseudo);
-
-    void delete(Long id);
 }

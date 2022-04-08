@@ -1,19 +1,19 @@
 package com.manga.bdgest.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "auteur")
 public class Auteur {
 
     @Id
-    @GeneratedValue
+    @Column(name="id_auteur", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name="nom", nullable = false, updatable = false)
     private String nom;
-
+    @Column(name="prenom", nullable = false, updatable = false)
     private String prenom;
 
 
@@ -49,5 +49,5 @@ public class Auteur {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
-    
+
 }

@@ -1,6 +1,7 @@
 package com.manga.bdgest.service;
 
 
+import com.manga.bdgest.model.Album;
 import com.manga.bdgest.model.Serie;
 import com.manga.bdgest.persistence.SerieRepository;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,14 @@ public class SerieService {
         this.repository = repository;
     }
 
-    public List<Serie> findAll() {
+    public List<Serie> getAll() {
         return repository.findAll();
     }
+
+    public Optional<Serie> getById(Long id){
+        return repository.findById(id);
+    }
+
 
     public void create(Serie serie) {
         repository.save(serie);
@@ -29,6 +35,7 @@ public class SerieService {
         Optional<Serie> serie = repository.findById(id);
         serie.ifPresent(repository::delete);
     }
+
 
 
 }

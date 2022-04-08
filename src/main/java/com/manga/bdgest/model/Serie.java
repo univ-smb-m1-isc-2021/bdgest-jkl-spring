@@ -1,36 +1,44 @@
 package com.manga.bdgest.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
+@Table(name = "serie")
 public class Serie {
 
     @Id
-    @GeneratedValue
+    @Column(name="id_serie", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long  id;
+    @Column(name="titre", nullable = false)
     private String titre;
+    @Column(name="description", nullable = false)
     private String description;
+    @Column(name="image", nullable = false)
     private String image;
+    @Column(name="categorie", nullable = false)
     private String categorie;
-    private String auteur;
+
+    @OneToOne
+    @JoinColumn(name = "id_auteur")
+    private Auteur auteur;
+
+    @Column(name="date_creation")
     private Date debut;
+    @Column(name="date_fin")
     private Date fin;
+    @Column(name="nb_tomes")
     private int nbTomes;
 
-    @OneToMany
-    private ArrayList<Album> albums;
 
     public Serie() {
         // JPA
     }
 
-    public Serie(String titre, String description, String image, String categorie, String auteur, String Isbn, Date debut, Date fin, int nbTomes) {
+    public Serie(String titre, String description, String image, String categorie, Auteur auteur, String Isbn, Date debut, Date fin, int nbTomes) {
         this.titre = titre;
         this.description = description;
         this.image = image;
@@ -81,11 +89,11 @@ public class Serie {
         this.categorie = categorie;
     }
 
-    public String getAuteur() {
+    public Auteur getAuteur() {
         return auteur;
     }
 
-    public void setAuteur(String auteur) {
+    public void setAuteur(Auteur auteur) {
         this.auteur = auteur;
     }
 
@@ -112,21 +120,6 @@ public class Serie {
 
     public void setNbTomes(int nbTomes) {
         this.nbTomes = nbTomes;
-    }
-
-    public ArrayList<Album> getAlbums() {
-        return albums;
-    }
-
-    public void setAlbums(ArrayList<Album> albums) {
-        this.albums = albums;
-    }
-
-    public void addAlbum(Album album) {
-        if (albums == null) {
-            albums = new ArrayList<>();
-        }
-        albums.add(album);
     }
 
 }

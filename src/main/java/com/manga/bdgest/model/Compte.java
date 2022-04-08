@@ -5,20 +5,21 @@ import java.util.ArrayList;
 import com.manga.bdgest.model.Album;
 
 @Entity
+@Table(name = "compte")
 public class Compte {
 
     @Id
-    @GeneratedValue
+    @Column(name="id_user", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="pseudo", nullable = false, unique = true)
     private String pseudo;
-
+    @Column(name="password", nullable = false)
     private String password;
-
+    @Column(name="email", nullable = false, unique = true)
     private String email;
 
-    @OneToMany
-    private ArrayList<Album> favoris;
 
     public Compte() {
         //JPA
@@ -28,14 +29,12 @@ public class Compte {
         this.pseudo = pseudo;
         this.password = password;
         this.email = email;
-        this.favoris = favoris;
     }
 
     public Compte(String pseudo, String password, String email) {
         this.pseudo = pseudo;
         this.password = password;
         this.email = email;
-        this.favoris = new ArrayList<>();
     }
 
     public long getId() {
@@ -46,13 +45,6 @@ public class Compte {
         return pseudo;
     }
 
-    public Album getAlbum(int index) {
-        return favoris.get(index);
-    }
-
-    public ArrayList<Album> getFavoris() {
-        return favoris;
-    }
 
     public String getPassword() {
         return password;
@@ -74,12 +66,5 @@ public class Compte {
         this.email = email;
     }
 
-    public void setFavoris(ArrayList<Album> favoris) {
-        this.favoris = favoris;
-    }
-
-    public void addFavoris(Album album) {
-        this.favoris.add(album);
-    }
 
 }

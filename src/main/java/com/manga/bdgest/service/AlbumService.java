@@ -1,11 +1,9 @@
 package com.manga.bdgest.service;
 
-
-import com.manga.bdgest.model.Album;
+import com.manga.bdgest.model.Auteur;
+import com.manga.bdgest.model.Serie;
 import com.manga.bdgest.persistence.AlbumRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
+import com.manga.bdgest.model.Album;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,24 +14,24 @@ public class AlbumService {
 
     private final AlbumRepository repository;
 
-    public AlbumService(AlbumRepository repository) {
+    public AlbumService(AlbumRepository repository){
         this.repository = repository;
     }
 
-    public List<Album> getAll() {
+    public List<Album> getAll(){
         return repository.findAll();
     }
 
-    public void delete(Long id) {
+    public Optional<Album> getById(Long id){
+        return repository.findById(id);
+    }
+
+    public void delete(Long id){
         Optional<Album> album = repository.findById(id);
         album.ifPresent(repository::delete);
     }
 
-    public Album getAlbum(Long id) {
-        return repository.findById(id).get();
-    }
-
-    public Album create(Album album) {
-        return repository.save(album);
+    public void create(String titre, String serie, String auteur, String numero){
+        repository.save(new Album(titre,serie,auteur,numero));
     }
 }
