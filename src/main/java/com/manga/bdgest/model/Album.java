@@ -11,12 +11,24 @@ public class Album {
     @Column(name="id_album", nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name="titre", nullable = false)
     private String titre;
-    @Column(name= "serie")
+
+//    @OneToOne
+//    @JoinColumn(name = "id_serie")
+//    private Serie serie;
+//
+//    @OneToOne
+//    @JoinColumn(name = "id_auteur")
+//    private Auteur auteur;
+
+    @Column(name="id_serie")
     private String serie;
-    @Column(name= "auteur", nullable = false)
+
+    @Column(name="id_auteur")
     private String auteur;
+
     @Column(name= "numero", nullable = false)
     private String numero;
 

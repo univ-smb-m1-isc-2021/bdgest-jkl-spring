@@ -1,5 +1,9 @@
-package com.manga.bdgest.model;
+package com.manga.bdgest.service;
 
+import com.manga.bdgest.model.Auteur;
+import com.manga.bdgest.model.Serie;
+import com.manga.bdgest.persistence.AlbumRepository;
+import com.manga.bdgest.model.Album;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
