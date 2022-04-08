@@ -18,6 +18,10 @@ public class AlbumService {
         return repository.findAll();
     }
 
+    public Optional<Album> getById(Long id){
+        return repository.findById(id);
+    }
+
     public void delete(Long id){
         Optional<Album> album = repository.findById(id);
         album.ifPresent(repository::delete);

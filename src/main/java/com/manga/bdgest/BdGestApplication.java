@@ -1,4 +1,4 @@
-package com.manga.bdgest.application;
+package com.manga.bdgest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
