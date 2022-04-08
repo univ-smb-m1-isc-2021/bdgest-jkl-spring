@@ -1,18 +1,23 @@
 package com.manga.bdgest.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "album")
 public class Album {
 
+
     @Id
-    @GeneratedValue
+    @Column(name="id_album", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name="titre", nullable = false)
     private String titre;
+    @Column(name= "serie")
     private String serie;
+    @Column(name= "auteur", nullable = false)
     private String auteur;
+    @Column(name= "numero", nullable = false)
     private String numero;
 
     public Album() {
