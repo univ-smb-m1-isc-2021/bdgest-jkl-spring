@@ -22,18 +22,21 @@ public class AlbumController {
         this.albumService = albumService;
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}")
     public Optional<Album> getAlbumById(@PathVariable(value="id") Long id){
         logger.info("Get album by id");
         return albumService.getById(id);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}/serie")
     public Serie getSerieByAlbumId(@PathVariable(value="id") Long id){
         logger.info("Get serie by album id");
         return albumService.getById(id).get().getSerie();
     }
 
+    @CrossOrigin
     @GetMapping(value = "/all")
     public List<Album> getAll(){
         logger.info("Get all albums");
