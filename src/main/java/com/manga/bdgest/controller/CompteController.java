@@ -24,12 +24,14 @@ public class CompteController {
         this.compteService = compteService;
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}")
     public Optional<Compte> getCompteById(@PathVariable(value="id") Long id){
         logger.info("Get album by id");
         return compteService.getById(id);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/all")
     public List<Compte> getAll(){
         logger.info("Get all albums");

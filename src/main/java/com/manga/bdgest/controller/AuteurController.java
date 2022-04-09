@@ -25,12 +25,14 @@ public class AuteurController {
         this.auteurService = auteurService;
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}")
     public Optional<Auteur> getAuteurById(@PathVariable(value="id") Long id){
         logger.info("Get auteur by id");
         return auteurService.getById(id);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/all")
     public List<Auteur> getAll(){
         logger.info("Get all authors");

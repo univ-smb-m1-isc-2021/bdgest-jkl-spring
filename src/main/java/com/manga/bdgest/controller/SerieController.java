@@ -24,12 +24,14 @@ public class SerieController {
         this.serieService = serieService;
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}")
     public Optional<Serie> getSerieById(@PathVariable(value="id") Long id){
         logger.info("Get album by id");
         return serieService.getById(id);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/all")
     public List<Serie> getAll(){
         logger.info("Get all albums");
