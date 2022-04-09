@@ -18,10 +18,13 @@ class Initializer {
 
     private final CompteRepository compteRepository;
 
-    public Initializer(AlbumRepository albumRepository, AuteurRepository auteurRepository, CompteRepository compteRepository) {
+    private final SerieRepository serieRepository;
+
+    public Initializer(AlbumRepository albumRepository, AuteurRepository auteurRepository, CompteRepository compteRepository, SerieRepository serieRepository) {
         this.albumRepository = albumRepository;
         this.auteurRepository = auteurRepository;
         this.compteRepository = compteRepository;
+        this.serieRepository = serieRepository;
     }
 
     @PostConstruct
@@ -30,8 +33,9 @@ class Initializer {
         albumRepository.deleteAllInBatch();
         auteurRepository.deleteAllInBatch();
         compteRepository.deleteAllInBatch();
+        serieRepository.deleteAllInBatch();
 
-        if (albumRepository.findAll().isEmpty() && compteRepository.findAll().isEmpty() && auteurRepository.findAll().isEmpty()){
+        if (albumRepository.findAll().isEmpty() && compteRepository.findAll().isEmpty() && auteurRepository.findAll().isEmpty() && serieRepository.findAll().isEmpty()) {
 
             Auteur auteur = new Auteur("Jubard", "Théo");
 
@@ -49,14 +53,16 @@ class Initializer {
 
             Compte compte3 = new Compte("Luxem", "123", "test@test.com");
 
-            Serie serie = new Serie("Les aventures du Spring", "L'histoire de la vie", "image", "seum", auteur, "2542", new Date(), new Date(), 3);
+            Serie serie = new Serie("Les aventures du Spring", "L'histoire de la vie", "image", "seum", auteur, new Date(), new Date(), 3);
 
-            Album album1 = new Album("Tintin et Loris","2", "auteur", "65");
+            Album album1 = new Album("Tintin et Loris",serie, "auteur", "65");
 
-            Album album2 = new Album("Loris au toilette","2", "auteur2", "69");
+            Album album2 = new Album("Loris au toilette",serie, "auteur2", "69");
 
-            Album album3 = new Album("Loris mange du poisson","2", "auteur3", "100");
+            Album album3 = new Album("Loris mange du poisson",serie, "auteur3", "100");
 
+
+            serieRepository.saveAndFlush(serie);
             albumRepository.saveAndFlush(album1);
             albumRepository.saveAndFlush(album2);
             albumRepository.saveAndFlush(album3);

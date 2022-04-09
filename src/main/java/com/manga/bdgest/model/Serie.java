@@ -1,9 +1,9 @@
 package com.manga.bdgest.model;
 
 import javax.persistence.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "serie")
@@ -22,6 +22,9 @@ public class Serie {
     @Column(name="categorie", nullable = false)
     private String categorie;
 
+    @OneToMany(mappedBy = "serie")
+    private Set<Album> albums = new HashSet<>();
+
     @OneToOne
     @JoinColumn(name = "id_auteur")
     private Auteur auteur;
@@ -35,10 +38,10 @@ public class Serie {
 
 
     public Serie() {
-        // JPA
+
     }
 
-    public Serie(String titre, String description, String image, String categorie, Auteur auteur, String Isbn, Date debut, Date fin, int nbTomes) {
+    public Serie(String titre, String description, String image, String categorie, Auteur auteur, Date debut, Date fin, int nbTomes) {
         this.titre = titre;
         this.description = description;
         this.image = image;
@@ -47,7 +50,9 @@ public class Serie {
         this.debut = debut;
         this.fin = fin;
         this.nbTomes = nbTomes;
+
     }
+
 
     public Long getId() {
         return id;
@@ -122,6 +127,13 @@ public class Serie {
         this.nbTomes = nbTomes;
     }
 
+    public Set<Album> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(Set<Album> albums) {
+        this.albums = albums;
+    }
 }
 
 

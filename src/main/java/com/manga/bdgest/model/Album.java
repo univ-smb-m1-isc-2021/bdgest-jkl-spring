@@ -15,16 +15,16 @@ public class Album {
     @Column(name="titre", nullable = false)
     private String titre;
 
-//    @OneToOne
-//    @JoinColumn(name = "id_serie")
-//    private Serie serie;
-//
+    @ManyToOne
+    @JoinColumn(name = "serie_id")
+    private Serie serie;
+
 //    @OneToOne
 //    @JoinColumn(name = "id_auteur")
 //    private Auteur auteur;
 
-    @Column(name="id_serie")
-    private String serie;
+//    @Column(name="id_serie")
+//    private String serie;
 
     @Column(name="id_auteur")
     private String auteur;
@@ -35,7 +35,7 @@ public class Album {
     public Album() {
     }
 
-    public Album(String titre, String serie, String auteur, String numero) {
+    public Album(String titre, Serie serie, String auteur, String numero) {
         this.titre = titre;
         this.serie = serie;
         this.auteur = auteur;
@@ -58,11 +58,11 @@ public class Album {
         this.titre = titre;
     }
 
-    public String getSerie() {
+    public Serie getSerie() {
         return serie;
     }
 
-    public void setSerie(String serie) {
+    public void setSerie(Serie serie) {
         this.serie = serie;
     }
 
