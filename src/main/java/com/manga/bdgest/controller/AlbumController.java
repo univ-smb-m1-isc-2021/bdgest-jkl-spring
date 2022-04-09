@@ -27,6 +27,7 @@ public class AlbumController {
         return albumService.getById(id);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/all")
     public List<Album> getAll(){
         logger.info("Get all albums");
