@@ -2,6 +2,7 @@ package com.manga.bdgest.controller;
 
 
 import com.manga.bdgest.model.Album;
+import com.manga.bdgest.model.Serie;
 import com.manga.bdgest.service.AlbumService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,12 @@ public class AlbumController {
     public Optional<Album> getAlbumById(@PathVariable(value="id") Long id){
         logger.info("Get album by id");
         return albumService.getById(id);
+    }
+
+    @GetMapping(value = "/{id}/serie")
+    public Serie getSerieByAlbumId(@PathVariable(value="id") Long id){
+        logger.info("Get serie by album id");
+        return albumService.getById(id).get().getSerie();
     }
 
     @GetMapping(value = "/all")

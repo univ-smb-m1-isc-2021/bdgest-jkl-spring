@@ -55,11 +55,11 @@ class Initializer {
 
             Serie serie = new Serie("Les aventures du Spring", "L'histoire de la vie", "image", "seum", auteur, new Date(), new Date(), 3);
 
-            Album album1 = new Album("Tintin et Loris",serie, "auteur", "65");
+            Album album1 = new Album("Tintin et Loris",serie, auteur, "65");
 
-            Album album2 = new Album("Loris au toilette",serie, "auteur2", "69");
+            Album album2 = new Album("Loris au toilette",serie, auteur, "69");
 
-            Album album3 = new Album("Loris mange du poisson",serie, "auteur3", "100");
+            Album album3 = new Album("Loris mange du poisson",serie, auteur, "100");
 
 
             serieRepository.saveAndFlush(serie);

@@ -1,5 +1,8 @@
 package com.manga.bdgest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -22,7 +25,7 @@ public class Serie {
     @Column(name="categorie", nullable = false)
     private String categorie;
 
-    @OneToMany(mappedBy = "serie")
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     private Set<Album> albums = new HashSet<>();
 
     @OneToOne
@@ -127,6 +130,7 @@ public class Serie {
         this.nbTomes = nbTomes;
     }
 
+    @JsonManagedReference
     public Set<Album> getAlbums() {
         return albums;
     }

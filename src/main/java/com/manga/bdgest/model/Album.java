@@ -1,5 +1,7 @@
 package com.manga.bdgest.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,18 +18,17 @@ public class Album {
     private String titre;
 
     @ManyToOne
-    @JoinColumn(name = "serie_id")
+    @JoinColumn(name = "id_serie")
     private Serie serie;
 
-//    @OneToOne
-//    @JoinColumn(name = "id_auteur")
-//    private Auteur auteur;
+    @ManyToOne
+    @JoinColumn(name = "id_auteur")
+    private Auteur auteur;
 
-//    @Column(name="id_serie")
-//    private String serie;
 
-    @Column(name="id_auteur")
-    private String auteur;
+
+//    @Column(name="id_auteur")
+//    private String auteur;
 
     @Column(name= "numero", nullable = false)
     private String numero;
@@ -35,7 +36,7 @@ public class Album {
     public Album() {
     }
 
-    public Album(String titre, Serie serie, String auteur, String numero) {
+    public Album(String titre, Serie serie, Auteur auteur, String numero) {
         this.titre = titre;
         this.serie = serie;
         this.auteur = auteur;
@@ -58,6 +59,7 @@ public class Album {
         this.titre = titre;
     }
 
+    @JsonBackReference
     public Serie getSerie() {
         return serie;
     }
@@ -66,11 +68,12 @@ public class Album {
         this.serie = serie;
     }
 
-    public String getAuteur() {
+    @JsonBackReference
+    public Auteur getAuteur() {
         return auteur;
     }
 
-    public void setAuteur(String auteur) {
+    public void setAuteur(Auteur auteur) {
         this.auteur = auteur;
     }
 

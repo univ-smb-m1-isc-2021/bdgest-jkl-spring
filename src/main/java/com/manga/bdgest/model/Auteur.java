@@ -1,7 +1,11 @@
 package com.manga.bdgest.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "auteur")
@@ -15,6 +19,9 @@ public class Auteur {
     private String nom;
     @Column(name="prenom", nullable = false, updatable = false)
     private String prenom;
+
+    @OneToMany(mappedBy = "auteur")
+    private Set<Album> albums = new HashSet<>();
 
 
     public Auteur() {
@@ -48,6 +55,15 @@ public class Auteur {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
+    }
+
+    @JsonManagedReference
+    public Set<Album> getAlbums() {
+        return albums;
+    }
+
+    public void addAlbum(Album album) {
+        albums.add(album);
     }
 
 }

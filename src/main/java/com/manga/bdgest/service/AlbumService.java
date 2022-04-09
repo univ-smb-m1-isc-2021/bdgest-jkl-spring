@@ -26,12 +26,13 @@ public class AlbumService {
         return repository.findById(id);
     }
 
+
     public void delete(Long id){
         Optional<Album> album = repository.findById(id);
         album.ifPresent(repository::delete);
     }
 
-    public void create(String titre, Serie serie, String auteur, String numero){
+    public void create(String titre, Serie serie, Auteur auteur, String numero){
         repository.save(new Album(titre,serie,auteur,numero));
     }
 }
