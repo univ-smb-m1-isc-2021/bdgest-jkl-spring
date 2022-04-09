@@ -7,7 +7,7 @@
 ### Créer la BDD en local
 - Après avoir installer docker, lancer le container postgres avec :<br>
 ```
-docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=somePassword -d postgres
+docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=somePassword -d bdgest
 ```
 - Vous devez ensuite vous connecter a la BDD depuis IntelliJ avec les identifiants suivants, dans databases vous pourrez mettre en place une connexion avec la BDD :<br>
 ```
