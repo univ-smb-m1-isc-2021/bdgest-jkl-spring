@@ -67,6 +67,14 @@ public class CompteController {
         return compteService.getAll();
     }
 
+    @CrossOrigin
+    @GetMapping(value = "/signup/{pseudo}/{email}/{password}")
+    public Boolean signIn(@PathVariable(value="pseudo") String pseudo, @PathVariable(value="email") String email, @PathVariable(value="password") String password){
+        Compte compte = new Compte(pseudo, email, password);
+        compteService.create(compte);
+        return true;
+    }
+
 
 
 }
