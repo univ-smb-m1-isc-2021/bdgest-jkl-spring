@@ -29,7 +29,7 @@ public class CompteDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Compte compte = compteRepository.findByPseudo(username);
+        Compte compte = compteRepository.findByPseudoOrEmail(username,username);
         if (compte == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
