@@ -28,6 +28,12 @@ public class Compte {
     )
     private Set<Album> collection = new HashSet<>();
 
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "id_compte"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
 
     public Compte() {
         //JPA
@@ -99,5 +105,13 @@ public class Compte {
 
     public void removeCollection(Album album) {
         this.collection.remove(album);
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
