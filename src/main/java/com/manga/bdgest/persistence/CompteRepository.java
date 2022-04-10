@@ -10,4 +10,10 @@ import org.springframework.stereotype.Repository;
 public interface CompteRepository extends JpaRepository<Compte, Long> {
 
     Compte findByPseudo(String pseudo);
+
+    Compte findByEmail(String email);
+
+    Boolean existsByPseudo(String pseudo);
+
+    Boolean existsByEmail(String email);
 }
