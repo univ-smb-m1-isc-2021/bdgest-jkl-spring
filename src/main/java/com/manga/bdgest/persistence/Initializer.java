@@ -59,13 +59,13 @@ class Initializer {
             compteRepository.saveAndFlush(compte2);
             compteRepository.saveAndFlush(compte3);
 
-            Serie serie = new Serie("Les aventures du Spring", "L'histoire de la vie", "image", "seum", auteur, new Date(), new Date(), 3);
+            Serie serie = new Serie("Les aventures du Spring", "L'histoire de la vie", "https://www.bedetheque.com/media/Couvertures/Couv_420341.jpg", "seum", auteur, new Date(), new Date(), 3);
 
-            Album album1 = new Album("Tintin et Loris",serie, auteur, "65", "523", "seum", "852");
+            Album album1 = new Album("Tintin et Loris",serie, auteur, "65", "523", "https://lesimpressionsnouvelles.com/wp-content/uploads/2016/09/tintinCOUVsite-1.jpg", "852");
 
-            Album album2 = new Album("Loris au toilette",serie, auteur, "69", "23", "seum", "image");
+            Album album2 = new Album("Loris au toilette",serie, auteur, "69", "23", "https://ds.static.rtbf.be/article/image/1920xAuto/1/6/8/c7d86983f21da3de678b6562edbeea0a-1427872987.jpg", "image");
 
-            Album album3 = new Album("Loris mange du poisson",serie, auteur, "100", "123", "seum", "aled");
+            Album album3 = new Album("Loris mange du poisson",serie, auteur, "100", "123", "https://www.bedetheque.com/media/Couvertures/tintinfl07_20092003.jpg", "aled");
 
 
 
