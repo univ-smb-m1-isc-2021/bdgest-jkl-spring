@@ -3,7 +3,7 @@ package com.manga.bdgest.model;
 import lombok.Data;
 
 @Data
-public class loginDto {
+public class LoginDto {
     private String usernameOrEmail;
     private String password;
 }

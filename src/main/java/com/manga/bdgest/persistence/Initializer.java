@@ -1,9 +1,6 @@
 package com.manga.bdgest.persistence;
 
-import com.manga.bdgest.model.Auteur;
-import com.manga.bdgest.model.Album;
-import com.manga.bdgest.model.Compte;
-import com.manga.bdgest.model.Serie;
+import com.manga.bdgest.model.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -22,11 +19,14 @@ class Initializer {
 
     private final SerieRepository serieRepository;
 
-    public Initializer(AlbumRepository albumRepository, AuteurRepository auteurRepository, CompteRepository compteRepository, SerieRepository serieRepository) {
+    private final RoleRepository roleRepository;
+
+    public Initializer(AlbumRepository albumRepository, AuteurRepository auteurRepository, CompteRepository compteRepository, SerieRepository serieRepository,RoleRepository roleRepository) {
         this.albumRepository = albumRepository;
         this.auteurRepository = auteurRepository;
         this.compteRepository = compteRepository;
         this.serieRepository = serieRepository;
+        this.roleRepository = roleRepository;
     }
 
     @PostConstruct
@@ -85,6 +85,8 @@ class Initializer {
 //            compteRepository.saveAndFlush(compteTest);
 
             compteRepository.saveAndFlush(compte4);
+
+            roleRepository.save(new Role("ROLE_ADMIN"));
 
         }
 
