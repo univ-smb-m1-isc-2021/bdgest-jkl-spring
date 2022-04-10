@@ -96,4 +96,8 @@ public class Compte {
     public void addCollection(Album album) {
         this.collection.add(album);
     }
+
+    public void removeCollection(Album album) {
+        this.collection.remove(album);
+    }
 }

@@ -51,6 +51,16 @@ public class CompteController {
     }
 
     @CrossOrigin
+    @GetMapping(value = "/{id}/deletecollection/{idAlbum}")
+    public void removeFromCollectionByUserIdAndAlbumId(@PathVariable(value="id") Long id, @PathVariable(value="idAlbum") Long idAlbum){
+        logger.info("Get album by id");
+        Album album = albumService.getById(idAlbum).get();
+        Compte compte = compteService.getById(id).get();
+        compte.removeCollection(album);
+        compteService.create(compte);
+    }
+
+    @CrossOrigin
     @GetMapping(value = "/all")
     public List<Compte> getAll(){
         logger.info("Get all albums");
