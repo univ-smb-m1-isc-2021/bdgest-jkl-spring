@@ -47,6 +47,7 @@ public class CompteController {
         Album album = albumService.getById(idAlbum).get();
         Compte compte = compteService.getById(id).get();
         compte.addCollection(album);
+        compteService.create(compte);
     }
 
     @CrossOrigin
