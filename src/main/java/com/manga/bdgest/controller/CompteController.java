@@ -75,6 +75,14 @@ public class CompteController {
         return true;
     }
 
+    @CrossOrigin
+    @GetMapping(value = "/delete/{id}")
+    public Boolean signIn(@PathVariable(value="id") Long id){
+        compteService.delete(id);
+        return true;
+    }
+
+
 
 
 }
