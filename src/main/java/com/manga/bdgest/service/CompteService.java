@@ -35,4 +35,8 @@ public class CompteService {
         Optional<Compte> compte = repository.findById(id);
         compte.ifPresent(repository::delete);
     }
+
+    public Compte getByEmailOrPseudo(String email) {
+        return repository.findByPseudoOrEmail(email,email);
+    }
 }

@@ -83,6 +83,13 @@ public class CompteController {
     }
 
 
+    @CrossOrigin
+    @GetMapping(value = "/getByEmailOrPseudo/{emailorpseudo}")
+    public Compte getByEmailOrPseudo(@PathVariable(value="emailorpseudo") String email){
+        return compteService.getByEmailOrPseudo(email);
+    }
+
+
 
 
 }
