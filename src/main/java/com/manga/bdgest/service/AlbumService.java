@@ -32,7 +32,7 @@ public class AlbumService {
         album.ifPresent(repository::delete);
     }
 
-    public void create(String titre, Serie serie, Auteur auteur, String numero){
-        repository.save(new Album(titre,serie,auteur,numero));
+    public void create(String titre, Serie serie, Auteur auteur, String numero, String isbn, String image, String description){
+        repository.save(new Album(titre,serie,auteur,numero, isbn, image, description));
     }
 }

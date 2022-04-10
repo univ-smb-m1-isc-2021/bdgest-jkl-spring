@@ -3,6 +3,8 @@ package com.manga.bdgest.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "album")
@@ -17,30 +19,42 @@ public class Album {
     @Column(name="titre", nullable = false)
     private String titre;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_serie")
     private Serie serie;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_auteur")
     private Auteur auteur;
-
-
-
-//    @Column(name="id_auteur")
-//    private String auteur;
 
     @Column(name= "numero", nullable = false)
     private String numero;
 
+    @Column(name="isbn", nullable = false)
+    private String isbn;
+
+    private String image;
+
+    @Column(name="description", nullable = false)
+    private String description;
+
+    @ManyToMany(mappedBy = "collection", cascade = CascadeType.MERGE)
+    private Set<Compte> collection = new HashSet<>();
+
+
+
+
     public Album() {
     }
 
-    public Album(String titre, Serie serie, Auteur auteur, String numero) {
+    public Album(String titre, Serie serie, Auteur auteur, String numero, String isbn, String image, String description) {
         this.titre = titre;
         this.serie = serie;
         this.auteur = auteur;
         this.numero = numero;
+        this.isbn = isbn;
+        this.image = image;
+        this.description = description;
     }
 
     public Long getId() {
@@ -84,4 +98,29 @@ public class Album {
     public void setNumero(String numero) {
         this.numero = numero;
     }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
+

@@ -1,15 +1,15 @@
 package com.manga.bdgest.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import com.manga.bdgest.model.Album;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "compte")
 public class Compte {
 
     @Id
-    @Column(name="id_user", nullable = false, updatable = false)
+    @Column(name="id_compte", nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -20,16 +20,24 @@ public class Compte {
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "collection",
+            joinColumns = { @JoinColumn(name = "id_compte")},
+            inverseJoinColumns = { @JoinColumn(name = "id_album") }
+    )
+    private Set<Album> collection = new HashSet<>();
+
 
     public Compte() {
         //JPA
     }
 
-    public Compte(String pseudo, String password, String email, ArrayList<Album> favoris) {
-        this.pseudo = pseudo;
-        this.password = password;
-        this.email = email;
-    }
+//    public Compte(String pseudo, String password, String email, ArrayList<Album> favoris) {
+//        this.pseudo = pseudo;
+//        this.password = password;
+//        this.email = email;
+//    }
 
     public Compte(String pseudo, String password, String email) {
         this.pseudo = pseudo;
@@ -37,8 +45,19 @@ public class Compte {
         this.email = email;
     }
 
-    public long getId() {
+    public Compte(String pseudo, String password, String email, Set<Album> collection) {
+        this.pseudo = pseudo;
+        this.password = password;
+        this.email = email;
+        this.collection = collection;
+    }
+
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPseudo() {
@@ -66,5 +85,15 @@ public class Compte {
         this.email = email;
     }
 
+    public Set<Album> getCollection() {
+        return collection;
+    }
 
+    public void setCollection(Set<Album> collection) {
+        this.collection = collection;
+    }
+
+    public void addCollection(Album album) {
+        this.collection.add(album);
+    }
 }
