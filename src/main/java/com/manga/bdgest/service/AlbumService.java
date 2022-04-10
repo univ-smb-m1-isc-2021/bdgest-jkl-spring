@@ -6,6 +6,7 @@ import com.manga.bdgest.persistence.AlbumRepository;
 import com.manga.bdgest.model.Album;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,7 @@ public class AlbumService {
         album.ifPresent(repository::delete);
     }
 
-    public void create(String titre, Serie serie, Auteur auteur, String numero, String isbn, String image, String description){
-        repository.save(new Album(titre,serie,auteur,numero, isbn, image, description));
+    public void create(String titre, Serie serie, Auteur auteur, String numero, String isbn, String image, String description, Date date){
+        repository.save(new Album(titre,serie,auteur,numero, isbn, image, description,date));
     }
 }

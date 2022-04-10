@@ -3,6 +3,7 @@ package com.manga.bdgest.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,6 +39,9 @@ public class Album {
     @Column(name="description", nullable = false)
     private String description;
 
+    @Column(name="date", nullable = false)
+    private Date creation;
+
     @ManyToMany(mappedBy = "collection", cascade = CascadeType.MERGE)
     private Set<Compte> collection = new HashSet<>();
 
@@ -47,13 +51,14 @@ public class Album {
     public Album() {
     }
 
-    public Album(String titre, Serie serie, Auteur auteur, String numero, String isbn, String image, String description) {
+    public Album(String titre, Serie serie, Auteur auteur, String numero, String isbn, String image, String description, Date date) {
         this.titre = titre;
         this.serie = serie;
         this.auteur = auteur;
         this.numero = numero;
         this.isbn = isbn;
         this.image = image;
+        this.creation = date;
         this.description = description;
     }
 
@@ -122,5 +127,14 @@ public class Album {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Date getCreation() {
+        return creation;
+    }
+
+    public void setCreation(Date creation) {
+        this.creation = creation;
+    }
+
 }
 

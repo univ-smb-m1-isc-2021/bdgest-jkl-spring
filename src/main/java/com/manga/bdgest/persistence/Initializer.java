@@ -59,13 +59,13 @@ class Initializer {
             compteRepository.saveAndFlush(compte2);
             compteRepository.saveAndFlush(compte3);
 
-            Serie serie = new Serie("Les aventures du Spring", "L'histoire de la vie", "https://www.bedetheque.com/media/Couvertures/Couv_420341.jpg", "seum", auteur, new Date(), new Date(), 3);
+            Serie serie = new Serie("Le Mystère de Tintin", "Ensemble d'histoire tournée autour des aventures de Tintin. Suivez les aventures du célèbre reportaire aux quatres coins du globe !", "https://www.bedetheque.com/media/Couvertures/Couv_420341.jpg", "Aventure", auteur, new Date(), new Date(), 3);
 
-            Album album1 = new Album("Tintin et Loris",serie, auteur, "65", "523", "https://lesimpressionsnouvelles.com/wp-content/uploads/2016/09/tintinCOUVsite-1.jpg", "852");
+            Album album1 = new Album("Tintin et Loris",serie, auteur, "65", "523", "https://lesimpressionsnouvelles.com/wp-content/uploads/2016/09/tintinCOUVsite-1.jpg", "852",new Date());
 
-            Album album2 = new Album("Loris au toilette",serie, auteur, "69", "23", "https://ds.static.rtbf.be/article/image/1920xAuto/1/6/8/c7d86983f21da3de678b6562edbeea0a-1427872987.jpg", "image");
+            Album album2 = new Album("Loris au toilette",serie, auteur, "69", "23", "https://ds.static.rtbf.be/article/image/1920xAuto/1/6/8/c7d86983f21da3de678b6562edbeea0a-1427872987.jpg", "image",new Date());
 
-            Album album3 = new Album("Loris mange du poisson",serie, auteur, "100", "123", "https://www.bedetheque.com/media/Couvertures/tintinfl07_20092003.jpg", "aled");
+            Album album3 = new Album("Loris mange du poisson",serie, auteur, "100", "123", "https://www.bedetheque.com/media/Couvertures/tintinfl07_20092003.jpg", "aled", new Date());
 
 
 
