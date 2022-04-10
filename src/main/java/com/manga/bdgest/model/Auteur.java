@@ -20,7 +20,7 @@ public class Auteur {
     @Column(name="prenom", nullable = false, updatable = false)
     private String prenom;
 
-    @OneToMany(mappedBy = "auteur")
+    @OneToMany(mappedBy = "auteur", cascade = CascadeType.MERGE)
     private Set<Album> albums = new HashSet<>();
 
 

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 class Initializer {
@@ -65,17 +67,24 @@ class Initializer {
 
             Album album3 = new Album("Loris mange du poisson",serie, auteur, "100", "123", "seum", "aled");
 
-//            compte2.addCollection(album1);
-            
+
 
             serieRepository.saveAndFlush(serie);
             albumRepository.saveAndFlush(album1);
             albumRepository.saveAndFlush(album2);
             albumRepository.saveAndFlush(album3);
 
+            Set<Album> albums = new HashSet<>();
+            albums.add(album1);
 
+            Compte compte4 = new Compte("Caca", "123", "test85@test.com", albums);
 
+//            Compte compteTest = compteRepository.findById(1L).get();
+//            compteTest.addCollection(album1);
 
+//            compteRepository.saveAndFlush(compteTest);
+
+            compteRepository.saveAndFlush(compte4);
 
         }
 

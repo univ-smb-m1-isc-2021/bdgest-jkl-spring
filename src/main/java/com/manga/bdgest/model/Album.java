@@ -19,11 +19,11 @@ public class Album {
     @Column(name="titre", nullable = false)
     private String titre;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_serie")
     private Serie serie;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_auteur")
     private Auteur auteur;
 
@@ -38,7 +38,7 @@ public class Album {
     @Column(name="description", nullable = false)
     private String description;
 
-    @ManyToMany(mappedBy = "collection")
+    @ManyToMany(mappedBy = "collection", cascade = CascadeType.MERGE)
     private Set<Compte> collection = new HashSet<>();
 
 

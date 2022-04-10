@@ -25,10 +25,10 @@ public class Serie {
     @Column(name="categorie", nullable = false)
     private String categorie;
 
-    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.MERGE)
     private Set<Album> albums = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_auteur")
     private Auteur auteur;
 

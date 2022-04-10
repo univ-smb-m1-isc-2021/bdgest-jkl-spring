@@ -4,8 +4,6 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.manga.bdgest.model.Album;
-
 @Entity
 @Table(name = "compte")
 public class Compte {
@@ -22,7 +20,7 @@ public class Compte {
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "collection",
             joinColumns = { @JoinColumn(name = "id_compte")},
@@ -45,6 +43,13 @@ public class Compte {
         this.pseudo = pseudo;
         this.password = password;
         this.email = email;
+    }
+
+    public Compte(String pseudo, String password, String email, Set<Album> collection) {
+        this.pseudo = pseudo;
+        this.password = password;
+        this.email = email;
+        this.collection = collection;
     }
 
     public Long getId() {
