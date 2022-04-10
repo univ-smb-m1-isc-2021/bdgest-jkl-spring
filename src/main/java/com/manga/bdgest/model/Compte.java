@@ -1,7 +1,9 @@
 package com.manga.bdgest.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 import com.manga.bdgest.model.Album;
 
 @Entity
@@ -9,7 +11,7 @@ import com.manga.bdgest.model.Album;
 public class Compte {
 
     @Id
-    @Column(name="id_user", nullable = false, updatable = false)
+    @Column(name="id_compte", nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -20,16 +22,24 @@ public class Compte {
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "collection",
+            joinColumns = { @JoinColumn(name = "id_compte")},
+            inverseJoinColumns = { @JoinColumn(name = "id_album") }
+    )
+    private Set<Album> collection = new HashSet<>();
+
 
     public Compte() {
         //JPA
     }
 
-    public Compte(String pseudo, String password, String email, ArrayList<Album> favoris) {
-        this.pseudo = pseudo;
-        this.password = password;
-        this.email = email;
-    }
+//    public Compte(String pseudo, String password, String email, ArrayList<Album> favoris) {
+//        this.pseudo = pseudo;
+//        this.password = password;
+//        this.email = email;
+//    }
 
     public Compte(String pseudo, String password, String email) {
         this.pseudo = pseudo;
@@ -37,8 +47,12 @@ public class Compte {
         this.email = email;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPseudo() {
@@ -66,5 +80,15 @@ public class Compte {
         this.email = email;
     }
 
+    public Set<Album> getCollection() {
+        return collection;
+    }
 
+    public void setCollection(Set<Album> collection) {
+        this.collection = collection;
+    }
+
+    public void addCollection(Album album) {
+        this.collection.add(album);
+    }
 }

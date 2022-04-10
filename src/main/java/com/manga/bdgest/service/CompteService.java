@@ -27,8 +27,8 @@ public class CompteService {
     }
 
 
-    public Compte create(Compte compte) {
-        return repository.save(compte);
+    public void create(Compte compte) {
+        repository.save(compte);
     }
 
     public void delete(Long id) {

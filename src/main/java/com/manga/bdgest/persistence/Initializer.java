@@ -35,7 +35,7 @@ class Initializer {
         compteRepository.deleteAllInBatch();
         serieRepository.deleteAllInBatch();
 
-        if (albumRepository.findAll().isEmpty() && compteRepository.findAll().isEmpty() && auteurRepository.findAll().isEmpty() && serieRepository.findAll().isEmpty()) {
+        if (albumRepository.findAll().isEmpty() && compteRepository.findAll().isEmpty() && auteurRepository.findAll().isEmpty() && serieRepository.findAll().isEmpty() && compteRepository.findAll().isEmpty()) {
 
             Auteur auteur = new Auteur("Jubard", "Théo");
 
@@ -49,23 +49,31 @@ class Initializer {
 
             Compte compte = new Compte("Barjonitro", "123", "test@test.com");
 
-            Compte compte2 = new Compte("Omarmelade", "123", "test@test.com");
+            Compte compte2 = new Compte("Omarmelade", "123", "test2@test.com");
 
-            Compte compte3 = new Compte("Luxem", "123", "test@test.com");
+            Compte compte3 = new Compte("Luxem", "123", "test3@test.com");
+
+            compteRepository.saveAndFlush(compte);
+            compteRepository.saveAndFlush(compte2);
+            compteRepository.saveAndFlush(compte3);
 
             Serie serie = new Serie("Les aventures du Spring", "L'histoire de la vie", "image", "seum", auteur, new Date(), new Date(), 3);
 
-            Album album1 = new Album("Tintin et Loris",serie, auteur, "65");
+            Album album1 = new Album("Tintin et Loris",serie, auteur, "65", "523", "seum", "852");
 
-            Album album2 = new Album("Loris au toilette",serie, auteur, "69");
+            Album album2 = new Album("Loris au toilette",serie, auteur, "69", "23", "seum", "image");
 
-            Album album3 = new Album("Loris mange du poisson",serie, auteur, "100");
+            Album album3 = new Album("Loris mange du poisson",serie, auteur, "100", "123", "seum", "aled");
 
+//            compte2.addCollection(album1);
+            
 
             serieRepository.saveAndFlush(serie);
             albumRepository.saveAndFlush(album1);
             albumRepository.saveAndFlush(album2);
             albumRepository.saveAndFlush(album3);
+
+
 
 
 
