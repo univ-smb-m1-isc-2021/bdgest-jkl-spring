@@ -118,6 +118,22 @@
             </plugins>
         </pluginManagement>
         <plugins>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <environmentVariables>
+                        <!-- Default config for vanilla install of a local postgresql -->
+                        <SPRING_DATASOURCE_URL>jdbc:postgresql://postgres:5432/db_bdgest_jkl</SPRING_DATASOURCE_URL>
+                        <SPRING_DATASOURCE_USERNAME>bdgest_jkl_root</SPRING_DATASOURCE_USERNAME>
+                        <SPRING_DATASOURCE_PASSWORD>7QwPyS96m</SPRING_DATASOURCE_PASSWORD>
+                        <SPRING_JPA_HIBERNATE_DDL_AUTO>create-drop</SPRING_JPA_HIBERNATE_DDL_AUTO>
+                        <SPRING_JPA_DATABASE>POSTGRESQL</SPRING_JPA_DATABASE>
+                    </environmentVariables>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <configuration>
