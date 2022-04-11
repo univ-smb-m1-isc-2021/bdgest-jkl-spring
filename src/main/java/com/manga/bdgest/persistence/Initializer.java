@@ -65,21 +65,21 @@ class Initializer {
 
             Album album2 = new Album("Alerte à Fukushima",serie, auteur, "69", "23", "https://ds.static.rtbf.be/article/image/1920xAuto/1/6/8/c7d86983f21da3de678b6562edbeea0a-1427872987.jpg", "Après l'attaque d'un missile, Tintin et le captiaine Hadock se rendent sur les lieux de la centrale afin d'enquêter",new Date());
 
-            Album album3 = new Album("Les 7 boules de cristal",serie, auteur, "100", "123", "https://www.bedetheque.com/media/Couvertures/tintinfl07_20092003.jpg", "aled", new Date());
+            Album album3 = new Album("Les 7 boules de cristal",serie, auteur, "100", "123", "https://www.bedetheque.com/media/Couvertures/tintinfl07_20092003.jpg", "Après de nombreux combats, la bataille finale commence enfin ! Qui sortira vainqueur de ce choc de titan ?!", new Date());
 
             Serie serie2 = new Serie("Dragon Ball Z ", "Goku, un alien de la race des Sayens et arriver sur Terre après la destruction de sa planète", "https://images-na.ssl-images-amazon.com/images/I/71BaBz2cBLL.jpg", "Action", auteur2, new Date(), new Date(), 152);
 
-            Album album4 = new Album("La vengeance de Freezer",serie2, auteur2, "45", "12651643", "https://images-na.ssl-images-amazon.com/images/I/71BaBz2cBLL.jpg", "aled", new Date());
+            Album album4 = new Album("La vengeance de Freezer",serie2, auteur2, "45", "12651643", "https://images-na.ssl-images-amazon.com/images/I/71BaBz2cBLL.jpg", "Après de nombreux combats, la bataille finale commence enfin ! Qui sortira vainqueur de ce choc de titan ?!", new Date());
 
-            Album album5 = new Album("La vengeance de Freezer",serie2, auteur2, "19", "12651643", "https://images-na.ssl-images-amazon.com/images/I/81ki-YrtLgL.jpg", "aled", new Date());
+            Album album5 = new Album("La vengeance de Freezer",serie2, auteur2, "19", "12651643", "https://images-na.ssl-images-amazon.com/images/I/81ki-YrtLgL.jpg", "Après de nombreux combats, la bataille finale commence enfin ! Qui sortira vainqueur de ce choc de titan ?!", new Date());
 
-            Album album6 = new Album("La vengeance de Freezer",serie2, auteur2, "43", "12651643", "https://www.bdfugue.com/media/catalog/product/cache/1/image/400x/17f82f742ffe127f42dca9de82fb58b1/9/7/9782723474771_1_75.jpg", "aled", new Date());
+            Album album6 = new Album("La vengeance de Freezer",serie2, auteur2, "43", "12651643", "https://www.bdfugue.com/media/catalog/product/cache/1/image/400x/17f82f742ffe127f42dca9de82fb58b1/9/7/9782723474771_1_75.jpg", "Après de nombreux combats, la bataille finale commence enfin ! Qui sortira vainqueur de ce choc de titan ?!", new Date());
 
-            Album album7 = new Album("La vengeance de Freezer",serie2, auteur2, "36", "12651643", "https://images-na.ssl-images-amazon.com/images/I/616RHMD7dML.jpg", "aled", new Date());
+            Album album7 = new Album("La vengeance de Freezer",serie2, auteur2, "36", "12651643", "https://images-na.ssl-images-amazon.com/images/I/616RHMD7dML.jpg", "Après de nombreux combats, la bataille finale commence enfin ! Qui sortira vainqueur de ce choc de titan ?!", new Date());
 
-            Album album8 = new Album("La vengeance de Freezer",serie2, auteur2, "42", "12651643", "https://ec56229aec51f1baff1d-185c3068e22352c56024573e929788ff.ssl.cf1.rackcdn.com/attachments/large/0/9/3/005298093.jpg", "aled", new Date());
+            Album album8 = new Album("La vengeance de Freezer",serie2, auteur2, "42", "12651643", "https://ec56229aec51f1baff1d-185c3068e22352c56024573e929788ff.ssl.cf1.rackcdn.com/attachments/large/0/9/3/005298093.jpg", "Après de nombreux combats, la bataille finale commence enfin ! Qui sortira vainqueur de ce choc de titan ?!", new Date());
 
-            Album album9 = new Album("La vengeance de Freezer",serie2, auteur2, "20", "12651643", "https://ec56229aec51f1baff1d-185c3068e22352c56024573e929788ff.ssl.cf1.rackcdn.com/attachments/large/8/8/6/005963886.jpg", "aled", new Date());
+            Album album9 = new Album("La vengeance de Freezer",serie2, auteur2, "20", "12651643", "https://ec56229aec51f1baff1d-185c3068e22352c56024573e929788ff.ssl.cf1.rackcdn.com/attachments/large/8/8/6/005963886.jpg", "Après de nombreux combats, la bataille finale commence enfin ! Qui sortira vainqueur de ce choc de titan ?!", new Date());
 
 
 

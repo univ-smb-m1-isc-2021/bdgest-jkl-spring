@@ -1,6 +1,7 @@
 package com.manga.bdgest.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,6 +50,7 @@ public class Compte {
         this.pseudo = pseudo;
         this.password = password;
         this.email = email;
+        this.collection = new HashSet<>();
     }
 
     public Compte(String pseudo, String password, String email, Set<Album> collection) {
