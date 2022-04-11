@@ -39,8 +39,8 @@ public class Serie {
     @Column(name="nb_tomes")
     private int nbTomes;
 
-//    @ManyToMany(mappedBy = "serieSuivi", cascade = CascadeType.MERGE)
-//    private Set<Compte> serieSuivi = new HashSet<>();
+    @ManyToMany(mappedBy = "serieSuivi", cascade = CascadeType.MERGE)
+    private Set<Compte> serieSuivi = new HashSet<>();
 
     public Serie() {
 

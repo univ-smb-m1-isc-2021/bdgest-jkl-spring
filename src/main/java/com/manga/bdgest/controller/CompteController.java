@@ -4,9 +4,11 @@ package com.manga.bdgest.controller;
 import com.manga.bdgest.model.Album;
 import com.manga.bdgest.model.Auteur;
 import com.manga.bdgest.model.Compte;
+import com.manga.bdgest.model.Serie;
 import com.manga.bdgest.service.AlbumService;
 import com.manga.bdgest.service.AuteurService;
 import com.manga.bdgest.service.CompteService;
+import com.manga.bdgest.service.SerieService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -23,11 +25,13 @@ public class CompteController {
     private final CompteService compteService;
     private final AlbumService albumService;
     private final AuteurService auteurService;
+    private final SerieService serieService;
 
-    public CompteController(CompteService compteService, AlbumService albumService, AuteurService auteurService){
+    public CompteController(CompteService compteService, AlbumService albumService, AuteurService auteurService, SerieService serieService){
         this.compteService = compteService;
         this.albumService = albumService;
         this.auteurService = auteurService;
+        this.serieService = serieService;
     }
 
     @CrossOrigin
@@ -86,6 +90,30 @@ public class CompteController {
         Compte compte = compteService.getById(id).get();
         Auteur auteur = auteurService.getById(idAuteur).get();
         compte.removeAuteurSuivi(auteur);
+        compteService.create(compte);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/{id}/seriesuivi")
+    public Set<Serie> getAuteurByCompteById(@PathVariable(value="id") Long id){
+        return compteService.getById(id).get().getSerieSuivi();
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "{id}/addseriesuivi/{idSerie}")
+    public void addSerieSuivi(@PathVariable(value="id") Long id, @PathVariable(value="idSerie") Long idSerie){
+        Compte compte = compteService.getById(id).get();
+        Serie serie = serieService.getById(idSerie).get();
+        compte.addSerieSuivi(serie);
+        compteService.create(compte);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "{id}/deleteseriesuivi/{idSerie}")
+    public void deleteSerieSuivi(@PathVariable(value="id") Long id, @PathVariable(value="idSerie") Long idSerie){
+        Compte compte = compteService.getById(id).get();
+        Serie serie = serieService.getById(idSerie).get();
+        compte.removeSerieSuivi(serie);
         compteService.create(compte);
     }
 
