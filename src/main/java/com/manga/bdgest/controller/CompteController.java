@@ -2,8 +2,10 @@ package com.manga.bdgest.controller;
 
 
 import com.manga.bdgest.model.Album;
+import com.manga.bdgest.model.Auteur;
 import com.manga.bdgest.model.Compte;
 import com.manga.bdgest.service.AlbumService;
+import com.manga.bdgest.service.AuteurService;
 import com.manga.bdgest.service.CompteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,10 +22,12 @@ public class CompteController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private final CompteService compteService;
     private final AlbumService albumService;
+    private final AuteurService auteurService;
 
-    public CompteController(CompteService compteService, AlbumService albumService){
+    public CompteController(CompteService compteService, AlbumService albumService, AuteurService auteurService){
         this.compteService = compteService;
         this.albumService = albumService;
+        this.auteurService = auteurService;
     }
 
     @CrossOrigin
@@ -57,6 +61,31 @@ public class CompteController {
         Album album = albumService.getById(idAlbum).get();
         Compte compte = compteService.getById(id).get();
         compte.removeCollection(album);
+        compteService.create(compte);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/{id}/auteursuivi")
+    public Set<Auteur> getAuteurSuiviByCompteById(@PathVariable(value="id") Long id){
+        return compteService.getById(id).get().getAuteurSuivi();
+    }
+
+
+    @CrossOrigin
+    @GetMapping(value = "{id}/addauteursuivi/{idAuteur}")
+    public void addAuteurSuivi(@PathVariable(value="id") Long id, @PathVariable(value="idAuteur") Long idAuteur){
+        Compte compte = compteService.getById(id).get();
+        Auteur auteur = auteurService.getById(idAuteur).get();
+        compte.addAuteurSuivi(auteur);
+        compteService.create(compte);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "{id}/deleteauteursuivi/{idAuteur}")
+    public void deleteAuteurSuivi(@PathVariable(value="id") Long id, @PathVariable(value="idAuteur") Long idAuteur){
+        Compte compte = compteService.getById(id).get();
+        Auteur auteur = auteurService.getById(idAuteur).get();
+        compte.removeAuteurSuivi(auteur);
         compteService.create(compte);
     }
 

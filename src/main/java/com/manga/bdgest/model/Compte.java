@@ -30,6 +30,24 @@ public class Compte {
     private Set<Album> collection = new HashSet<>();
 
     @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "auteurSuivi",
+            joinColumns = { @JoinColumn(name = "id_compte")},
+            inverseJoinColumns = { @JoinColumn(name = "id_auteur") }
+    )
+    private Set<Auteur> auteurSuivi = new HashSet<>();
+
+
+
+//    @ManyToMany(cascade = CascadeType.MERGE)
+//    @JoinTable(
+//            name = "serieSuivi",
+//            joinColumns = { @JoinColumn(name = "id_compte")},
+//            inverseJoinColumns = { @JoinColumn(name = "id_serie") }
+//    )
+//    private Set<Serie> serieSuivi = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "id_compte"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -115,5 +133,23 @@ public class Compte {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Set<Auteur> getAuteurSuivi() {
+        return auteurSuivi;
+    }
+
+    public void setAuteurSuivi(Set<Auteur> auteurSuivi) {
+        this.auteurSuivi = auteurSuivi;
+    }
+
+
+
+    public void addAuteurSuivi(Auteur auteur) {
+        this.auteurSuivi.add(auteur);
+    }
+
+    public void removeAuteurSuivi(Auteur auteur) {
+        this.auteurSuivi.remove(auteur);
     }
 }

@@ -23,6 +23,8 @@ public class Auteur {
     @OneToMany(mappedBy = "auteur", cascade = CascadeType.MERGE)
     private Set<Album> albums = new HashSet<>();
 
+    @ManyToMany(mappedBy = "auteurSuivi", cascade = CascadeType.MERGE)
+    private Set<Compte> auteurSuivi = new HashSet<>();
 
     public Auteur() {
         // JPA
